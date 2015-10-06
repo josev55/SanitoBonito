@@ -1,4 +1,5 @@
 var React = require('react-native');
+var SimpleTextField = require('./BasicComponents/SimpleTextField.component.js');
 
 
 var {
@@ -7,15 +8,16 @@ var {
 	StyleSheet,
 	TextInput,
 	TouchableHighlight,
-	Text
+	Text,
+	Image
 } = React;
 
 class LoginScreenComponent extends Component {
 	render() {
 		return (
 			<View style={styles.mainContainer}>
-				<TextInput style={styles.loginTextField} placeholder='Usuario' onChangeText={(login) => {this.setState({loginText: login})}} />
-				<TextInput style={styles.passTextField} placeholder='Contraseña' secureTextEntry={true} onChangeText={(pass) => {this.setState({passText: pass})}} />
+				<SimpleTextField logoImage='user' placeholderText='Usuario'  onChangeText={(login) => {console.log('Login: ' + login)}} />
+				<SimpleTextField logoImage='lock' placeholderText='Contraseña' secureEntry={true}  onChangeText={(pass) => {console.log('Pass: ' + pass)}} extendedStyles={{marginTop: 20}}/>
 				<TouchableHighlight style={styles.touchableLogin} onPress={() => {console.log('')}}>
 					<View style={styles.buttonLogin}>
 						<Text style={styles.loginText}>Ingresar</Text>
@@ -43,32 +45,25 @@ var styles = StyleSheet.create({
 		alignItems: 'center',
 		paddingLeft: 40,
 		paddingRight: 40,
-		backgroundColor: '#6DA79D'
+		backgroundColor: '#48ADAD'
 	},
 	loginTextField: {
 		height: 30,
-		borderColor: 'gray',
-		borderWidth: 1,
-		borderRadius: 5,
-		paddingLeft: 10,
-		backgroundColor: '#FFF'
+		paddingLeft: 10,		
 	},
 	passTextField: {
 		height: 30,
-		borderColor: 'gray',
-		borderWidth: 1,
-		borderRadius: 5,
 		paddingLeft: 10,
-		marginTop: 10,
-		backgroundColor: '#FFF'
+		marginTop: 10
 	},
 	touchableLogin: {
 		height: 35,
-		backgroundColor: '#9ED98E',
+		backgroundColor: '#003040',
 		width: 220,
 		marginTop: 20,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
+		borderRadius: 2
 	},
 	touchableFacebook: {
 		height: 35,
@@ -85,6 +80,9 @@ var styles = StyleSheet.create({
 		marginTop: 20,
 		alignItems: 'center',
 		justifyContent: 'center'
+	},
+	loginText: {
+		color: '#FFF'
 	}
 });
 
