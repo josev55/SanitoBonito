@@ -12,6 +12,7 @@ var styles = {};
 class SimpleTextField extends Component {	
 	constructor(props){
 		super(props);
+		responder = this.refs["INPUT_REF"];
 		var defaultStyles = {
 			loginWrapper: {
 				height: 30,
@@ -44,7 +45,7 @@ class SimpleTextField extends Component {
 	render(){
 		return (
 		<View style={styles.loginWrapper}>					
-			<Image source={{uri:this.props.logoImage}} style={styles.logoImage} />
+			<Image source={{uri: this.props.logoImage}} style={styles.logoImage} />
 			<TextInput style={styles.loginTextField} placeholder={this.props.placeholderText} secureTextEntry={this.props.secureEntry} placeholderTextColor='white' onChangeText={this.props.onChangeText} />
 		</View>
 		);

@@ -6,7 +6,8 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
-    "react-native": "^0.11.4",
-    "react-native-router-flux": "^0.3.0"
+    "react-native": "^0.12.0",
+    "react-native-router-flux": "^0.3.0",
+    "react-native-facebook-login": "latest"
   }
 }
