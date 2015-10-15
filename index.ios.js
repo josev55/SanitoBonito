@@ -5,23 +5,36 @@
 'use strict';
 
 var React = require('react-native');
-var {Router, Route, Container, Actions, Animations, Schema} = require('react-native-router-flux');
 var Login = require('./JSiOS/login.ios.js');
-
+var Registro = require('./JSiOS/registro.ios.js');
+var NavigationBar = require('react-native-navbar');
+var {NavBarRegister} = require('./JSiOS/BasicComponents/NavigationBarComponent.component.js');
 
 var {
   AppRegistry,
   StyleSheet,
   Text,
   View,
+  Navigator
 } = React;
+
+var {
+  Router, 
+  Route,
+  Animations
+} = require('react-native-router-flux');
+
+var LoginRoute = {
+  component: Login  
+};
 
 var SanitoBonito = React.createClass({
   render: function() {
-    return (
+    return (      
       <Router>
-        <Route name='launch' initial={true} hideNavBar={true} component={Login} />
-      </Router>
+        <Route name="launch" initial={true} hideNavBar={true} component={Login} sceneConfig={Animations.FlatFloatFromBottom}/>
+        <Route name="registro" hideNavBar={false} component={Registro} navBar={NavBarRegister} sceneConfig={Animations.FlatFloatFromBottom}/>
+      </Router>    
     );
   }
 });
