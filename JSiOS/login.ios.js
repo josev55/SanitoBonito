@@ -4,6 +4,8 @@ var FBButton = require('./BasicComponents/FBButton.component.js');
 var TextInputState = require('TextInputState');
 var FBLogin = require('react-native-facebook-login');
 var FBLoginManager = require('NativeModules').FBLoginManager;
+var Registro = require('./registro.ios.js');
+var Actions = require('react-native-router-flux').Actions;
 
 var {
 	Component,
@@ -14,7 +16,8 @@ var {
 	View,
 	Image,
 	StatusBarIOS,
-	TouchableWithoutFeedback
+	TouchableWithoutFeedback,
+	Navigator
 } = React;
 
 var firstResponder = null;
@@ -26,9 +29,12 @@ class LoginScreenComponent extends Component {
 		StatusBarIOS.setStyle('light-content', false);
 	}
 
+	_registerRoute() {
+		Actions.registro
+	}
+
 	render() {
-		return (
-			
+		return (			
 				<View style={styles.bgContainer}>
 					<Image style={styles.bgImage} source={{uri: 'login-bg'}}>
 						<TouchableWithoutFeedback onPress={() => {
@@ -41,7 +47,7 @@ class LoginScreenComponent extends Component {
 								</View>			
 								<View style={styles.inputContainer}>
 									<SimpleTextField logoImage='user' ref={"user"} placeholderText='Usuario' onChangeText={(login) => {console.log('Login: ' + login)}} />
-									<SimpleTextField logoImage='lock' ref={"pass"} placeholderText='Contraseña' secureEntry={true}  onChangeText={(pass) => {console.log('Pass: ' + pass)}} extendedStyles={{marginTop: 20}}/>
+									<SimpleTextField logoImage='lock' ref={"pass"} placeholderText='Contraseña'  onChangeText={(pass) => {console.log('Pass: ' + pass)}} extendedStyles={{marginTop: 20}}/>
 								</View>
 								<View style={styles.buttonsContainer}>
 									<TouchableHighlight style={styles.touchableLogin} onPress={() => {console.log('')}}>
@@ -50,32 +56,16 @@ class LoginScreenComponent extends Component {
 										</View>
 									</TouchableHighlight>													
 									<TouchableHighlight style={styles.touchableFacebook} onPress={() => {}}>
-										
-										<FBLogin permissions={["email","user_friends"]} onLogin={function(data){
-								          console.log("Logged in!");
-								          console.log(data);
-								          this.setState({ user : data.credentials });
-								        }} onError={function(data){
-								          console.log("ERROR");
-								          console.log(data);
-								        }}
-								        onCancel={function(){
-								          console.log("User cancelled.");
-								        }}
-								        onPermissionsMissing={function(data){
-								          console.log("Check permissions!");
-								          console.log(data);
-								        }}/>
+										<FBButton />										
 									</TouchableHighlight>										
 								</View>
 								<View style={styles.registerContainer}>									
-									<Text onPress={() => {}} style={styles.loginText}>¿No tienes cuenta? Regístrate aquí</Text>																	
+									<Text onPress={() => {Actions.registro()}} style={styles.loginText}>¿No tienes cuenta? Regístrate aquí</Text>																	
 								</View>				
 							</View>
 						</TouchableWithoutFeedback>
 					</Image>
 				</View>
-			
 			);
 	}
 }
@@ -97,7 +87,7 @@ var styles = StyleSheet.create({
 		paddingRight: 40
 	},
 	logoContainer: {
-		flex: .45,
+		flex: .40,
 		justifyContent: 'center',
 		alignItems: 'center'		
 	},

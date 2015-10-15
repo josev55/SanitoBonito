@@ -46,7 +46,7 @@ class SimpleTextField extends Component {
 		return (
 		<View style={styles.loginWrapper}>					
 			<Image source={{uri: this.props.logoImage}} style={styles.logoImage} />
-			<TextInput style={styles.loginTextField} placeholder={this.props.placeholderText} secureTextEntry={this.props.secureEntry} placeholderTextColor='white' onChangeText={this.props.onChangeText} />
+			<TextInput style={styles.loginTextField} placeholder={this.props.placeholderText} placeholderTextColor='white' onChangeText={this.props.onChangeText} />
 		</View>
 		);
 	}
