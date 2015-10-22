@@ -8,6 +8,8 @@
 
 #import "RCTViewManager.h"
 
-@interface RCTDateTextInput : RCTViewManager
+@interface RCTDateTextInput : RCT
+
+@property(nonatomic, strong) UIDatePicker *datePicker;
 
 @end

@@ -1,11 +1,14 @@
 var React = require('react-native');
+var moment = require('moment');
 
 var {
 	StyleSheet,
 	TextInput,
 	Image,
 	View,
-	Component
+	Component,
+	Text,
+	DatePickerIOS
 } = React;
 var styles = {};
 
@@ -52,4 +55,42 @@ class SimpleTextField extends Component {
 	}
 }
 
-module.exports = SimpleTextField;
+var inlineTextStyles = StyleSheet.create({
+	main: {
+		flexDirection: 'row',
+		height: 35,
+		alignItems: 'center'
+	},
+	leftText: {
+		flex: 0.2,
+		fontFamily: 'Titillium Web',
+		fontSize: 16,
+		paddingBottom: 2
+	},
+	leftDate: {
+		flex: 0.6,
+		fontFamily: 'Titillium Web',
+		fontSize: 16,
+		paddingBottom: 2	
+	},
+	rightInput: {
+		flex: 0.6,
+		textAlign: 'right'
+	},
+	rightDate: {
+		flex: 0.4
+	}
+});
+
+class InlineTextInput extends Component {
+	render() {
+		return (
+			<View style={[inlineTextStyles.main,this.props.extendedStyles]}>
+				<Text style={[inlineTextStyles.leftText, {color: this.props.labelColor}]}>{this.props.fieldLabel}</Text>
+				<TextInput style={inlineTextStyles.rightInput} placeholder={this.props.placeholderText} />
+			</View>
+		);
+	}
+}
+
+module.exports = {SimpleTextField, InlineTextInput};

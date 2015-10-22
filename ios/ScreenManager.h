@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "RCTBridgeModule.h"
 
-@interface ScreenManager : NSObject
+@interface ScreenManager : NSObject<RCTBridgeModule>
+
+@property(nonatomic, strong) NSNumber *width;
 
 @end

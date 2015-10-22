@@ -6,7 +6,9 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "moment": "^2.10.6",
     "react-native": "^0.12.0",
+    "react-native-custom-action-sheet": "0.0.4",
     "react-native-facebook-login": "latest",
     "react-native-navbar": "^0.8.2",
     "react-native-router": "latest",

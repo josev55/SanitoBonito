@@ -1,6 +1,8 @@
 var React = require('react-native');
 var TextInputState = require('TextInputState');
 var NavigationBarComp = require('./BasicComponents/NavigationBar.component.js');
+var {InlineTextInput} = require('./BasicComponents/SimpleTextField.component.js');
+var CustomActionSheet = require('react-native-custom-action-sheet');
 
 var {
 	Component,
@@ -10,7 +12,9 @@ var {
 	Text,
 	TextInput,
 	StyleSheet,
-	Image
+	Image,
+	DatePickerIOS,
+	TouchableOpacity
 } = React;
 
 var styles = StyleSheet.create({
@@ -73,12 +77,83 @@ var styles = StyleSheet.create({
 	cameraImage: {
 		width: 27,
 		height: 27
-	}
+	},
+	fieldBox: {
+		borderBottomWidth: 1,
+		borderBottomColor: '#FFF' 
+	},
+	input: {
+	    height: 35, 
+	    paddingLeft: 5,
+	    borderBottomWidth: 0.5,
+	    paddingTop: 8,	    
+	    borderBottomColor: '#666',
+	    marginLeft: 30,
+	    marginRight: 30,
+	    flexDirection: 'row'
+  	},
+  	datePicker: {
+	    borderTopWidth: 1, 
+	    position: 'absolute', 
+	    bottom: 0, 
+	    right: 0, 
+	    left: 0, 
+	    height: 220, 
+	    borderColor: '#CCC', 
+	    backgroundColor: '#FFF',    
+  	},
+  	saveButton: {
+  		height: 31,
+  		marginLeft: 60,
+  		marginRight: 60,
+  		borderRadius: 5,
+  		backgroundColor: '#007B7B',
+  		justifyContent: 'center',
+  		marginTop: 30
+  	},
+  	saveBtnText: {
+  		color: '#FFF',
+  		alignSelf: 'center'
+  	},
+  	innerDisclaimer: {
+  		color: '#007B7B'
+  	},
+  	disclaimerText: {  		
+  		fontSize: 12,
+  		marginLeft: 60,
+  		marginRight: 60,
+  		marginTop: 10,
+  		textAlign: 'justify'
+  	},
+  	datePickerContainer: {
+  		backgroundColor: '#FFF',
+  		marginBottom: 10,
+  		borderRadius: 6,
+  		alignItems: 'center'
+  	}
 });
 
-class RegistroProfile extends Component {
+class RegistroProfile extends Component {	
+	constructor(props){
+		super(props);	
+		var defaultDate = new Date();
+		defaultDate.setFullYear(defaultDate.getFullYear() - 18);	
+		this.state = { date: new Date(defaultDate), modalVisible: false };
+	}
+
+	onDateChange( date ){
+    	this.setState( { date: date } );
+  	}
+
+  	toggleModal() {
+  		TextInputState.blurTextInput(TextInputState.currentlyFocusedField())
+  		var visibleTmp = this.state.modalVisible;
+  		this.setState({
+  			modalVisible: visibleTmp ? false : true
+  		});
+  	}
+
 	render() {
-		console.log(styles);
 		return (					
 			<Image source={{uri: 'registrobg'}} style={styles.bgimage}>								
 				<TouchableWithoutFeedback onPress={() => { TextInputState.blurTextInput(TextInputState.currentlyFocusedField()) }}>
@@ -91,10 +166,35 @@ class RegistroProfile extends Component {
 								<TouchableHighlight style={styles.profPictBtn} underlayColor={"#CCCCCC"} onPress={() => {}}>
 									<Image source={{uri: 'cameraIcon'}} style={styles.cameraImage} />
 								</TouchableHighlight>
-							</View>
+							</View>												
+
+							<InlineTextInput fieldLabel="Nombre" labelColor="#999999" extendedStyles={{borderTopWidth: 0.5, borderTopColor: '#666', borderBottomWidth: 0.5, borderBottomColor: '#666', marginTop: 40, marginLeft: 30, marginRight: 30, paddingLeft: 5, paddingRight: 5}}/>
+							
+							<InlineTextInput fieldLabel="Sexo" labelColor="#999999" extendedStyles={{borderBottomWidth: 0.5, borderBottomColor: '#666', marginLeft: 30, marginRight: 30, paddingLeft: 5, paddingRight: 5}}/>							
+							<TouchableWithoutFeedback onPress={ this.toggleModal.bind(this) }>
+								<View style={ styles.input }>
+									<View>
+										<Text style={{color:"#999999"}}>Fecha de Nac.</Text>
+									</View>
+									<View style={{flex: 1, alignItems: 'flex-end', paddingRight: 5}}>
+						          		<Text style={{color: '#999'}}>{ this.state.date.getDate() }/{ this.state.date.getMonth() + 1}/{ this.state.date.getFullYear() }</Text>
+						          	</View>
+						        </View>
+						    </TouchableWithoutFeedback>
+							<InlineTextInput fieldLabel="Email" labelColor="#999999" extendedStyles={{borderBottomWidth: 0.5, borderBottomColor: '#666', marginLeft: 30, marginRight: 30, paddingLeft: 5, paddingRight: 5}}/>
+							<TouchableHighlight style={styles.saveButton}>
+								<Text style={styles.saveBtnText}>Registrar</Text>
+							</TouchableHighlight>
+							<Text style={styles.disclaimerText}>Al registrarte estas aceptando los <Text style={styles.innerDisclaimer}>Términos </Text> y <Text style={styles.innerDisclaimer}>Condiciones</Text></Text>
 						</View>
+						<CustomActionSheet labelText={"Aceptar"} modalVisible={this.state.modalVisible} onCancel={this.toggleModal.bind(this)}>
+				          <View style={styles.datePickerContainer}>
+				            <DatePickerIOS mode={"date"} date={this.state.date} onDateChange={(selectedDate) => {this.setState({date: selectedDate})}} />
+				          </View>
+				        </CustomActionSheet>
 					</View>
 				</TouchableWithoutFeedback>
+				
 			</Image>			
 		);
 	}

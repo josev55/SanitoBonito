@@ -8,6 +8,16 @@
 
 #import "ScreenManager.h"
 
+
 @implementation ScreenManager
+
+RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(getDimensions:(RCTResponseSenderBlock)callback){
+  CGRect screenRect = [[UIScreen mainScreen] bounds];
+  NSNumber* screenWidth = [NSNumber numberWithDouble:screenRect.size.width];
+  NSNumber* screenHeight = [NSNumber numberWithDouble:screenRect.size.height];
+  callback(@[screenWidth,screenHeight]);  
+}
 
 @end

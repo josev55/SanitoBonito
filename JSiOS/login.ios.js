@@ -1,11 +1,12 @@
 var React = require('react-native');
-var SimpleTextField = require('./BasicComponents/SimpleTextField.component.js');
+var {SimpleTextField} = require('./BasicComponents/SimpleTextField.component.js');
 var FBButton = require('./BasicComponents/FBButton.component.js');
 var TextInputState = require('TextInputState');
 var FBLogin = require('react-native-facebook-login');
 var FBLoginManager = require('NativeModules').FBLoginManager;
 var Registro = require('./registro.ios.js');
 var Actions = require('react-native-router-flux').Actions;
+var ScreenManager = require('NativeModules').ScreenManager;
 
 var {
 	Component,
@@ -23,16 +24,19 @@ var {
 var firstResponder = null;
 
 class LoginScreenComponent extends Component {
-	
 	constructor(props){
 		super(props);
 		StatusBarIOS.setStyle('light-content', false);
+		ScreenManager.getDimensions((width, height) => {
+			this.setState({
+				screenWidth: width,
+				screenHeight: height
+			});
+		});
 	}
-
 	_registerRoute() {
 		Actions.registro
 	}
-
 	render() {
 		return (			
 				<View style={styles.bgContainer}>
@@ -60,7 +64,7 @@ class LoginScreenComponent extends Component {
 									</TouchableHighlight>										
 								</View>
 								<View style={styles.registerContainer}>									
-									<Text onPress={() => {Actions.registro()}} style={styles.loginText}>¿No tienes cuenta? Regístrate aquí</Text>																	
+									<Text onPress={() => {Actions.registro({data: this.state.screenWidth})}} style={styles.loginText}>¿No tienes cuenta? Regístrate aquí</Text>																	
 								</View>				
 							</View>
 						</TouchableWithoutFeedback>

@@ -19,16 +19,19 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		804665081BC4181D00976B40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		804665081BC4181D00976B40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		E810915C1BC8B9EF00B84E7D /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E810915B1BC8B9DB00B84E7D /* libReact.a */; };
 		E81091631BCC94EF00B84E7D /* libRCTFBLogin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091621BCC94E400B84E7D /* libRCTFBLogin.a */; };
-		E81091681BCC95BD00B84E7D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091641BCC95BD00B84E7D /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		E81091691BCC95BD00B84E7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091651BCC95BD00B84E7D /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		E810916A1BCC95BD00B84E7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091661BCC95BD00B84E7D /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		E810916B1BCC95BD00B84E7D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091671BCC95BD00B84E7D /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
-		E8130ED71BC89CD2007C061B /* LoveYaLikeASister.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8130ED61BC89CD2007C061B /* LoveYaLikeASister.ttf */; settings = {ASSET_TAGS = (); }; };
-		E88C591B1BCEC25500030C8E /* TitilliumWebExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E88C591A1BCEC25500030C8E /* TitilliumWebExtraLight.ttf */; settings = {ASSET_TAGS = (); }; };
+		E81091681BCC95BD00B84E7D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091641BCC95BD00B84E7D /* Bolts.framework */; };
+		E81091691BCC95BD00B84E7D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091651BCC95BD00B84E7D /* FBSDKCoreKit.framework */; };
+		E810916A1BCC95BD00B84E7D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091661BCC95BD00B84E7D /* FBSDKLoginKit.framework */; };
+		E810916B1BCC95BD00B84E7D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E81091671BCC95BD00B84E7D /* FBSDKShareKit.framework */; };
+		E8130ED71BC89CD2007C061B /* LoveYaLikeASister.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8130ED61BC89CD2007C061B /* LoveYaLikeASister.ttf */; };
+		E88C591B1BCEC25500030C8E /* TitilliumWebExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E88C591A1BCEC25500030C8E /* TitilliumWebExtraLight.ttf */; };
+		E88C59281BCFE1EA00030C8E /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E88C59271BCFE1A800030C8E /* TitilliumWeb-Regular.ttf */; };
+		E88C592C1BCFF93100030C8E /* ScreenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E88C592B1BCFF93100030C8E /* ScreenManager.m */; };
+		E88C592E1BCFFC5400030C8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88C592D1BCFFC5300030C8E /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,10 @@
 		E81091671BCC95BD00B84E7D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		E8130ED61BC89CD2007C061B /* LoveYaLikeASister.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LoveYaLikeASister.ttf; sourceTree = "<group>"; };
 		E88C591A1BCEC25500030C8E /* TitilliumWebExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TitilliumWebExtraLight.ttf; sourceTree = "<group>"; };
+		E88C59271BCFE1A800030C8E /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		E88C592A1BCFF93100030C8E /* ScreenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenManager.h; sourceTree = "<group>"; };
+		E88C592B1BCFF93100030C8E /* ScreenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenManager.m; sourceTree = "<group>"; };
+		E88C592D1BCFFC5300030C8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88C592E1BCFFC5400030C8E /* CoreGraphics.framework in Frameworks */,
 				E81091631BCC94EF00B84E7D /* libRCTFBLogin.a in Frameworks */,
 				E810915C1BC8B9EF00B84E7D /* libReact.a in Frameworks */,
 				E810916B1BCC95BD00B84E7D /* FBSDKShareKit.framework in Frameworks */,
@@ -243,6 +251,7 @@
 		13B07FAE1A68108700A75B9A /* SanitoBonito */ = {
 			isa = PBXGroup;
 			children = (
+				E88C59291BCFF91900030C8E /* ScreenManager */,
 				E8130ED51BC89CBD007C061B /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -296,6 +305,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E88C592D1BCFFC5300030C8E /* CoreGraphics.framework */,
 				13B07FAE1A68108700A75B9A /* SanitoBonito */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SanitoBonitoTests */,
@@ -334,8 +344,18 @@
 			children = (
 				E88C591A1BCEC25500030C8E /* TitilliumWebExtraLight.ttf */,
 				E8130ED61BC89CD2007C061B /* LoveYaLikeASister.ttf */,
+				E88C59271BCFE1A800030C8E /* TitilliumWeb-Regular.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		E88C59291BCFF91900030C8E /* ScreenManager */ = {
+			isa = PBXGroup;
+			children = (
+				E88C592A1BCFF93100030C8E /* ScreenManager.h */,
+				E88C592B1BCFF93100030C8E /* ScreenManager.m */,
+			);
+			name = ScreenManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88C59281BCFE1EA00030C8E /* TitilliumWeb-Regular.ttf in Resources */,
 				804665081BC4181D00976B40 /* Images.xcassets in Resources */,
 				E88C591B1BCEC25500030C8E /* TitilliumWebExtraLight.ttf in Resources */,
 				E8130ED71BC89CD2007C061B /* LoveYaLikeASister.ttf in Resources */,
@@ -536,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88C592C1BCFF93100030C8E /* ScreenManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
